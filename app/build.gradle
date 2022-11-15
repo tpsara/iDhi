@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.innominds.hsafemdm"
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "22.5"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        // add the code from below line.
+        applicationVariants.all {
+                // this methid is use to rename your all apk weather
+                // it may be signed or unsigned(debug apk)
+            variant ->
+                variant.outputs.each {
+                    output ->
+                        def name = "hsafemdmagent-"+versionName+".apk"
+                        output.outputFileName = name
+                }
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude "META-INF/MSFTSIG.SF"
+        exclude "META-INF/MSFTSIG.RSA"
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'thirdpartynotice.txt'
+    }
+    lintOptions {
+        ignore 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.android.support:multidex:1.0.3'
+    /*implementation('com.microsoft.azure.sdk.iot:iot-device-client:1.14.2') {
+        exclude module: 'azure-storage'
+    }*/
+
+    implementation('com.microsoft.azure.android:azure-storage-android:2.0.0@aar')
+    implementation('org.apache.commons:commons-lang3:3.6')
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    implementation ('com.microsoft.azure.sdk.iot:iot-device-client:2.0.5') {
+        exclude module: 'slf4j-api'
+        exclude module: 'log4j-slf4j-impl'
+        exclude module: 'azure-storage'
+    }
+    implementation group: 'com.microsoft.azure.sdk.iot.provisioning.security', name: 'x509-provider', version: '2.0.1'
+    implementation group: 'com.microsoft.azure.sdk.iot.provisioning.security', name: 'security-provider', version: '2.0.0'
+    implementation group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.51'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    implementation group: 'com.hierynomus', name: 'smbj', version: '0.6.0'
+    implementation ('com.microsoft.azure.sdk.iot.provisioning:provisioning-device-client:1.7.1')
+}
