@@ -4,16 +4,12 @@ device: {iDhi}
 language: {Java}
 ---
 
-# Table of Contents
+# Getting Started with iDhi
 
 -   [Introduction](#Introduction)
 -   [Step 1: Prerequisites](#Prerequisites)
 -   [Step 2: Prepare your Device](#Prepareyourdevice)
 -   [Step 3: Build SDK and Run Samples](#Build)
--   [Step 4 : Integration with Azure IoT Explorer](#Explorer)
--   [Step 5: Connect to Azure IoT Central](#AzureIoTCentral)
--   [Step 6 : Additional Information](#AdditionalInformation)
--   [Step 7 : Additional Links](#AdditionalLinks)
 
 <a name="Introduction"></a>
 # Introduction
