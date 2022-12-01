@@ -13,14 +13,15 @@ language: Java
 
 <a name="Introduction"></a>
 
+# Introduction
+
 **About this document**
 
-# Introduction
 This document describes how to connect iDhi device running Android-10 with Azure IoT Java SDK. This multi-step process includes:
 
 -   Configuring Azure IoT Hub
--   Registering your IoT device
--   Provisioning your devices on Device Provisioning service 
+-   Registering iDhi
+-   Provisioning iDhi on Device Provisioning Service 
 -   Build and deploy Azure IoT SDK on device
 
 <a name="Prerequisites"></a>
@@ -39,7 +40,7 @@ You should have the following items ready before beginning the process:
 -   [Provision your device over DPS](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps)
 
 <a name="Prepareyourdevice"></a>
-# Step 2: Prepare your Device
+# Step 2: Prepare iDhi
 
 -    Setup the device and connect power.
 
@@ -69,7 +70,7 @@ You should have the following items ready before beginning the process:
      
       adb push dps.conf /data
 
-     The information in <code>dps.conf</code> files is used by the iDhi Device Client to provision the device in the Azure IoT Hub identified in it.  Please make sure the <cond>dps.conf</conf> information is accurate - else the device will not get provisioned.
+     The information in <code>dps.conf</code> files is used by the iDhi Device Client to provision the device in the Azure IoT Hub identified in <code>dps.conf</code>.  Please make sure the <code>dps.conf</code> information is accurate, otherwise the device will not get provisioned.
 
 -    To connect iDhi device over Wifi.
 
