@@ -29,7 +29,7 @@ android {
             variant ->
                 variant.outputs.each {
                     output ->
-                        def name = "hsafemdmagent-"+versionName+".apk"
+                        def name = "idhi-device-client.apk"
                         output.outputFileName = name
                 }
         }
