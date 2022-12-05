@@ -10,6 +10,7 @@ language: Java
 -   [Step 1: Prerequisites](#Prerequisites)
 -   [Step 2: Prepare your Device](#Prepareyourdevice)
 -   [Step 3: Build SDK and Run Sample code for connecting to Azure IoT Hub](#Build)
+-   [Step 4: Integration with Azure IoT Explorer](#IntegrationWithAzureIotExplorer)
 
 <a name="Introduction"></a>
 
@@ -99,7 +100,7 @@ You should have the following items ready before beginning the process:
       
   Wait for the boot complete Red-LED on the front panel to come up.  Now onwards the device will connect to Azure IoT Hub when it powers up.   Such a connected device can be viewed and controlled using Azure IoT Explorer, and this is explained in the section ahead.
 
-<a name="Build"></a>      
+<a name="IntegrationWithAzureIotExplorer"></a>      
 # Step 4 : Integration with Azure IoT Explorer
 
    The Azure IoT explorer is a graphical tool for interacting with devices connected to Azure IoT Hub.   Users can use Azure IoT Explorer and exercise the communication between iDhi device and Azure IoT Hub.
@@ -116,12 +117,15 @@ You should have the following items ready before beginning the process:
    - Select the iDhi device which you want to test.  In the following example we assume that the iDhi device under test is named <code>test-device</code>.     Now, we assume that you have selected <code>test-device</code> from the list of devices, to try out Azure IoT Explorer integration.
 
    - Now you can choose <code>Device twin</code> on the left-panel to view the details of the device twin.
+
    ![device twin](device_twin.png)
 
-   - You can also test invocation of Direct Method by choosing <code>Direct method</code> on the left-panel.
+   - You can also test the invocation of Direct Method by choosing <code>Direct method</code> on the left-panel.
      Refer screenshot below for Mehod name and Payload invocation details. Then click <code>Invoke method</code> button. The response for the Invoke method is displayed as pop-up message on the top right corner as shown in screenshot below.
+
    ![direct method](direct_method.png)
 
-   - You can also test cloud to device communication by choosing <code>Cloud-to-device message</code> on the left-panel.
+   - You can also test the cloud to device communication by choosing <code>Cloud-to-device message</code> on the left-panel.
      Construct the Message body in JSON format and click <code>Send message to device</code> button.  You can see the response is displayed as a pop-up message on the top right corner as shown in screenshot below.
+     
    ![cloud-to-device message](c2d_message.png)     
