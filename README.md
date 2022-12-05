@@ -97,11 +97,31 @@ You should have the following items ready before beginning the process:
   
       adb reboot 
       
-  Wait for the boot complete Red-LED on the front panel to come up.
-  
-  Now onwards the device will connect to Azure IoT Hub when it powers up.
+  Wait for the boot complete Red-LED on the front panel to come up.  Now onwards the device will connect to Azure IoT Hub when it powers up.   Such a connected device can be viewed and controlled using Azure IoT Explorer, and this is explained in the section ahead.
+
+<a name="Build"></a>      
+# Step 4 : Integration with Azure IoT Explorer
+
+   The Azure IoT explorer is a graphical tool for interacting with devices connected to Azure IoT Hub.   Users can use Azure IoT Explorer and exercise the communication between iDhi device and Azure IoT Hub.
    
-   
+   Following are the steps to interact with a connected iDhi device using Azure IoT explorer.
+
+   - Download and Install Azure IoT Explorer.  For details refer [here](https://learn.microsoft.com/en-us/azure/iot-fundamentals/howto-use-iot-explorer).
+   - Launch the Azure IoT Explorer      
+
+     ![Azure IoT Explorer on launch](laucher_iot_explorer.png)
      
+   - Use <code>Connect via IoT Hub connection string</code> button then use <code>Add connection</code> option and save the connection string of the hub to which you want to connect the iDhi test device. For details on how to get Azure IoT Hub connection string click on <code>Where do I get an IoT hub connection String?</code> documentation link provided in the IoT Explorer <code>Add connection string</code> screen (which comes up when you have clicked the <code>Add connection</code> option).
+   
+   - Select the iDhi device which you want to test.  In the following example we assume that the iDhi device under test is named <code>test-device</code>.     Now, we assume that you have selected <code>test-device</code> from the list of devices, to try out Azure IoT Explorer integration.
 
+   - Now you can choose <code>Device twin</code> on the left-panel to view the details of the device twin.
+   ![device twin](device_twin.png)
 
+   - You can also test invocation of Direct Method by choosing <code>Direct method</code> on the left-panel.
+     Refer screenshot below for Mehod name and Payload invocation details. Then click <code>Invoke method</code> button. The response for the Invoke method is displayed as pop-up message on the top right corner as shown in screenshot below.
+   ![direct method](direct_method.png)
+
+   - You can also test cloud to device communication by choosing <code>Cloud-to-device message</code> on the left-panel.
+     Construct the Message body in JSON format and click <code>Send message to device</code> button.  You can see the response is displayed as a pop-up message on the top right corner as shown in screenshot below.
+   ![cloud-to-device message](c2d_message.png)     
